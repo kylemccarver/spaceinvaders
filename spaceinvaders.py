@@ -298,10 +298,10 @@ def main():
             level += 1
             nextLevel = False
         else:
-            showGameOverScreen(score)
-            level = 0
             if score > hiscore:
                 hiscore = score
+            showGameOverScreen(score, hiscore)
+            level = 0
             score = 0
             lives = 3
             gameOver = False
@@ -416,7 +416,7 @@ def showStartScreen():
         pygame.display.update()
         FPSCLOCK.tick(FPS)
 
-def showGameOverScreen(score):
+def showGameOverScreen(score, hiscore):
     gameOverFont = pygame.font.Font("prstart.ttf", 20)
     infoFont = pygame.font.Font("prstart.ttf", 14)
 
@@ -460,7 +460,7 @@ def showGameOverScreen(score):
                     pygame.time.set_timer(USEREVENT+1, 500)
         
         SCREEN.fill(BGCOLOR)
-        drawScoreAndLives(score, 0)
+        drawScoreAndLives(score, hiscore, 0)
         SCREEN.blit(gameOverSurf, gameOverRect)
         if showScore:
             SCREEN.blit(scoreSurf, scoreRect)
