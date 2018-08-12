@@ -293,6 +293,7 @@ def main():
         playerMoveLeft = False
         playerMoveRight = False
         playerRect.topleft = ((SCREENWIDTH / 2) - (playerRect.width / 2), SCREENHEIGHT - BOTTOMMARGIN - playerRect.height - 50)
+        specialRect.topleft = (-specialRect.width, TOPMARGIN)
         note = 0
         if not gameOver:
             level += 1
